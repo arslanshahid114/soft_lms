@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_05_083023) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_11_120556) do
+  create_table "enrollments", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "teacher_id", null: false
+    t.integer "user_id", null: false
+    t.index ["teacher_id"], name: "index_enrollments_on_teacher_id"
+    t.index ["user_id"], name: "index_enrollments_on_user_id"
+  end
+
   create_table "teachers", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -39,4 +48,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_05_083023) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "enrollments", "teachers"
+  add_foreign_key "enrollments", "users"
 end
