@@ -2,10 +2,8 @@ Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   devise_for :teachers
+  devise_for :users
   get 'home/index'
-  devise_for :users ,controllers: {
-        sessions: 'users/sessions'
-      }
 
   #     devise_scope :admin do
   #       root "users/sessions#new"
