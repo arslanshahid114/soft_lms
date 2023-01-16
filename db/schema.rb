@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_13_131734) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_16_111105) do
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
     t.text "body"
@@ -47,11 +47,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_13_131734) do
   create_table "enrollments", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "teacher_id", null: false
-    t.integer "user_id", null: false
     t.integer "grade_id", null: false
     t.integer "course_id", null: false
     t.integer "section_id", null: false
+    t.integer "teacher_id", null: false
+    t.integer "user_id", null: false
     t.index ["course_id"], name: "index_enrollments_on_course_id"
     t.index ["grade_id"], name: "index_enrollments_on_grade_id"
     t.index ["section_id"], name: "index_enrollments_on_section_id"
