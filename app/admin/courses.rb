@@ -5,7 +5,7 @@ ActiveAdmin.register Course do
     #
     # Uncomment all parameters which should be permitted for assignment
     #
-    permit_params :course_name, :course_code
+    permit_params
     #
     # or
     #
@@ -15,11 +15,5 @@ ActiveAdmin.register Course do
     #   permitted
     # end
 
-    form do |f|
-        f.inputs do
-          f.input :course_name
-          f.input :course_code
-        end
-        f.actions
-      end
+
   end

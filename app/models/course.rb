@@ -1,3 +1,9 @@
 class Course < ApplicationRecord
-has_one :enrollment
+has_many :enrollments
+
+has_many :sections
+
+has_many :users, through: :enrollments
+has_many :sections,through: :enrollments
+
 end

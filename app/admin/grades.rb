@@ -5,7 +5,7 @@ ActiveAdmin.register Grade do
     #
     # Uncomment all parameters which should be permitted for assignment
     #
-    permit_params :letter
+    permit_params
     #
     # or
     #
@@ -14,11 +14,12 @@ ActiveAdmin.register Grade do
     # #   permitted << :other if params[:action] == 'create' && current_user.admin?
     #   permitted
     # end
-
     form do |f|
-        f.inputs do
-          f.input :letter
-        end
-        f.actions
+      f.inputs do
+        f.input :letter, as: :select, collection: Grade.select(:letter).uniq
       end
+      f.actions
+    end
+
+
   end

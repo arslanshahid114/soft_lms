@@ -5,7 +5,7 @@ ActiveAdmin.register Teacher do
     #
     # Uncomment all parameters which should be permitted for assignment
     #
-    permit_params :email, :password
+    permit_params :name,:f_name,:dob,:phone_number,:address,:email, :password
     #
     # or
     #
@@ -17,6 +17,11 @@ ActiveAdmin.register Teacher do
 
     form do |f|
         f.inputs do
+          f.input :name
+          f.input :f_name
+          f.input :dob
+          f.input :phone_number
+          f.input :address
           f.input :email
           f.input :password
         end

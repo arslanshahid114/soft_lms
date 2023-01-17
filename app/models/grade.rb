@@ -1,3 +1,4 @@
 class Grade < ApplicationRecord
-has_many :enrollments
+    has_many :enrollments
+
 end

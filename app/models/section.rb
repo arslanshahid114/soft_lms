@@ -1,3 +1,6 @@
 class Section < ApplicationRecord
-    has_one :enrollment
+    belongs_to :teacher
+    belongs_to :course
+  
+    has_many :enrollments
 end

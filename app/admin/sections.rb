@@ -5,7 +5,7 @@ ActiveAdmin.register Section do
     #
     # Uncomment all parameters which should be permitted for assignment
     #
-    permit_params :section_name
+    permit_params
     #
     # or
     #
@@ -14,11 +14,4 @@ ActiveAdmin.register Section do
     # #   permitted << :other if params[:action] == 'create' && current_user.admin?
     #   permitted
     # end
-
-    form do |f|
-        f.inputs do
-          f.input :section_name
-        end
-        f.actions
-      end
   end
