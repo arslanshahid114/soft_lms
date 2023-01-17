@@ -5,8 +5,7 @@ ActiveAdmin.register Enrollment do
     #
     # Uncomment all parameters which should be permitted for assignment
     #
-    permit_params
-    #
+    permit_params :teacher_id,:course_id,:section_id,:user_id, :grade_id
     # or
     #
     # permit_params do
@@ -15,10 +14,16 @@ ActiveAdmin.register Enrollment do
     #   permitted
     # end
 
-    # form do |f|
-    #     f.inputs do
-    #       f.input :letter
-    #     end
-    #     f.actions
-    #   end
+    form do |f|
+      f.inputs do
+        f.input :teacher_id
+        f.input :section_id
+        f.input :user_id
+        f.input :grade_id
+        f.input :course_id
+  
+  
+      end
+      f.actions
+    end
   end

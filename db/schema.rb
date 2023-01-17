@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_17_081742) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_17_135259) do
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
     t.text "body"
@@ -73,8 +73,29 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_17_081742) do
 
   create_table "sections", force: :cascade do |t|
     t.string "section_name"
+    t.integer "teacher_id", null: false
+    t.integer "course_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["course_id"], name: "index_sections_on_course_id"
+    t.index ["teacher_id"], name: "index_sections_on_teacher_id"
+  end
+
+  create_table "semesters", force: :cascade do |t|
+    t.integer "semester_number"
+    t.string "semester_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "student_semesters", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "semester_id", null: false
+    t.integer "year"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["semester_id"], name: "index_student_semesters_on_semester_id"
+    t.index ["user_id"], name: "index_student_semesters_on_user_id"
   end
 
   create_table "teachers", force: :cascade do |t|
@@ -118,5 +139,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_17_081742) do
   add_foreign_key "enrollments", "sections"
   add_foreign_key "enrollments", "teachers"
   add_foreign_key "enrollments", "users"
+  add_foreign_key "sections", "courses"
+  add_foreign_key "sections", "teachers"
+  add_foreign_key "student_semesters", "semesters"
+  add_foreign_key "student_semesters", "users"
   add_foreign_key "users", "batches"
 end

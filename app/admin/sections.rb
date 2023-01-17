@@ -5,7 +5,7 @@ ActiveAdmin.register Section do
     #
     # Uncomment all parameters which should be permitted for assignment
     #
-    permit_params
+    permit_params :course_id,:teacher_id,:section_name
     #
     # or
     #
