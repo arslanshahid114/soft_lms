@@ -4,19 +4,24 @@ Rails.application.routes.draw do
   devise_for :teachers
   devise_for :users
   # namespace :user do
-    resources :users  
+    resources :users do 
+      member do
+        get :allcourses, to: 'users#allcourses'
+        get :transcript, to: 'users#transcript'
+
+      end
+
+      end
+
   #   root 'users#index'
   # end
-  resources:teachers
-  
-  
+  resources:teachers do
+    member do
+      get :prevcourses, to: 'teachers#prevcourses'
+      get :currentcourses, to: 'teachers#currentcourses'
+    end
+  end
 
-
-  #     devise_scope :admin do
-  #       root "users/sessions#new"
-  #     end
-  # # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
+# Defines the root path route ("/")
   root "home#index"
 end

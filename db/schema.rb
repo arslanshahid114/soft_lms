@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_17_135259) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_18_111619) do
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
     t.text "body"
@@ -58,9 +58,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_17_135259) do
     t.integer "user_id", null: false
     t.integer "course_id"
     t.integer "grade_id"
+    t.integer "semester_id"
     t.index ["course_id"], name: "index_enrollments_on_course_id"
     t.index ["grade_id"], name: "index_enrollments_on_grade_id"
     t.index ["section_id"], name: "index_enrollments_on_section_id"
+    t.index ["semester_id"], name: "index_enrollments_on_semester_id"
     t.index ["teacher_id"], name: "index_enrollments_on_teacher_id"
     t.index ["user_id"], name: "index_enrollments_on_user_id"
   end
@@ -137,6 +139,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_17_135259) do
   add_foreign_key "enrollments", "courses"
   add_foreign_key "enrollments", "grades"
   add_foreign_key "enrollments", "sections"
+  add_foreign_key "enrollments", "semesters"
   add_foreign_key "enrollments", "teachers"
   add_foreign_key "enrollments", "users"
   add_foreign_key "sections", "courses"

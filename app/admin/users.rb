@@ -21,7 +21,7 @@ ActiveAdmin.register User do
         f.input :f_name
         f.input :dob
         f.input :phone_number
-        f.input :batch_id, as: :select, collection: Batch.select(:batch_id).uniq
+        f.input :batch_id
         f.input :address
         f.input :email
         f.input :password

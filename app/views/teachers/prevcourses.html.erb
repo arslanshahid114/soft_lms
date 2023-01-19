@@ -1,0 +1,25 @@
+<h1>Previous courses</h1>
+
+
+<table id="enrollment" border="3" layout= "fixed" width=" 100%" >
+<tr>
+<th>ID</th>
+<th>Course</th>
+<th>Section</th>
+<th>Semester No</th>
+<th>Semester Type</th>
+</tr>
+
+    <% @teacher_sections.each do |t| %>
+        <tr>      
+        <td><%= t.id %></td>
+            
+        <td><%= t.course.course_name %></td>
+        <td><%= t.section_name %></td>
+        
+       
+        </tr>
+      
+        
+        <% end %>
+        

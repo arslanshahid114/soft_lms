@@ -55,5 +55,5 @@ Course.create(id:4,course_name:"CALC",course_code:"CALC001")
 Course.create(id:5,course_name:"PS",course_code:"PS001")
 Course.create(id:6,course_name:"DLD",course_code:"DLD001")
 
-User.create(id:1,batch_id:1,email: 'user@example.com', password: 'password', password_confirmation: 'password')
+ User.create(id:1,batch_id:1,email: 'user@example.com', password: 'password', password_confirmation: 'password')
 

@@ -21,5 +21,4 @@ ActiveAdmin.register Grade do
       f.actions
     end
 
-
   end

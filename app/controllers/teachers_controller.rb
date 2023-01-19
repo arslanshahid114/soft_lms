@@ -12,6 +12,10 @@ class TeachersController < ApplicationController
         def create
         end
       
+        def prevcourses
+          @teacher_sections=current_teacher.sections
+          end
+
         private
         # Use callbacks to share common setup or constraints between actions.
         def set_teacher

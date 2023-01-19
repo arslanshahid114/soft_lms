@@ -1,0 +1,22 @@
+<h1>Current courses</h1>
+
+<table id="enrollment" border="3" layout= "fixed" width=" 100%" >
+<tr>
+<th>ID</th>
+<th>Course</th>
+<th>Section</th>
+<th>Semester Type</th>
+<th>Semester No</th>
+</tr>
+        <tr>
+    <% current_teacher.sections.each do |t| %>
+       <% t.enrollments.where(grade_id:11).each do |x| %>
+        <td><%= x.id %></td>
+            
+        <td><%= x.course.course_name %></td>
+        <td><%= x.section.section_name %></td>
+        <td><%= x.semester.semester_type %></td>
+
+            <% end %>
+        <% end %>
+        </tr>
