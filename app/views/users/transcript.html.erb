@@ -3,22 +3,23 @@
 <tr>
     <th>ID</th>
     <th>Course</th>
-    <th>Teacher Name</th>
     <th>Section</th>
-    <th>Semester</th>
+    <th>Semester Type</th>
     <th>Semester No</th>
+    <th>Grade</th>
   </tr>
 
 
-<% @enrollments.each do |e| %>
-    <tr>
-        <td><%= e.id %></td>
-        <td><%= e.section.course.course_name %></td>
-        <td><%= e.section.teacher.name %></td>
-        <td><%= e.section.section_name%></td>
-        <td><%= e.semester.semester_type %></td>
-        <td><%= e.semester.semester_number%></td>
-    </tr>
+  <% @enrollments.each do |e| %>
+        <tr>
+          <td><%= e.id %></td>
+          <td><%= e.section.course.course_name %></td>
+          <td><%= e.section.section_name %></td>
+          <td><%= e.semester.semester_type %></td>
+          <td><%= e.semester.semester_number%></td>
+          <td><%= e.grade.letter%></td>
+        
+          </tr>
   <% end %>
-
+  
 <%= link_to "Back", users_path %>

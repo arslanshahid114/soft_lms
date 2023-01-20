@@ -9,16 +9,15 @@
     <th>Semester No</th>
   </tr>
 
-
-<% @enrollments.each do |e| %>
-    <tr>
+  <tr>
+  <% @enrollments.each do |e| %>
         <td><%= e.id %></td>
         <td><%= e.section.course.course_name %></td>
         <td><%= e.section.teacher.name %></td>
         <td><%= e.section.section_name%></td>
         <td><%= e.semester.semester_type %></td>
         <td><%= e.semester.semester_number%></td>
-    </tr>
   <% end %>
+  </tr>
 
 <%= link_to "Back", users_path %>

@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   # namespace :user do
     resources :users do 
       member do
-        get :allcourses, to: 'users#allcourses'
+        get :all_courses, to: 'users#all_courses'
         get :transcript, to: 'users#transcript'
 
       end
@@ -17,8 +17,8 @@ Rails.application.routes.draw do
   # end
   resources:teachers do
     member do
-      get :prevcourses, to: 'teachers#prevcourses'
-      get :currentcourses, to: 'teachers#currentcourses'
+      get :prev_courses, to: 'teachers#prev_courses'
+      get :current_courses, to: 'teachers#current_courses'
     end
   end
 

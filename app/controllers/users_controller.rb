@@ -11,15 +11,11 @@ class UsersController < ApplicationController
         
     end
 
-    def showtranscript
-        @semesters=current_user.semesters
-    end
-
-    def allcourses
-        @enrollments=current_user.semesters[-1].enrollments.where(grade_id:11)
+    def all_courses
+        @enrollments=current_user.enrollments.where(grade_id:11)             
     end
   
-    def transcript
-        @enrollments=current_user.semesters[-1].enrollments.where.not(grade_id:11)
+    def transcript 
+        @enrollments=current_user.enrollments.where.not(grade_id:11)
     end
 end

@@ -6,7 +6,7 @@
 <p>PhoneNumber: <%= current_user.phone_number %></p>
 <p>Date of Birth: <%= current_user.dob %></p>
 <p>Batch Number: <%= current_user.batch_id %></p>
-<p>Semester Number: <%= current_user.semesters.last.semester_number %></p>
+<p>Semester Number: <%= current_user.enrollments.last.semester %></p>  
 
 <%= link_to "Back", users_path %>
 

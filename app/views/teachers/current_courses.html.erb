@@ -1,0 +1,23 @@
+<h1>Current courses</h1>
+
+<table id="enrollment" border="3" layout= "fixed" width=" 100%" >
+<tr>
+<th>ID</th>
+<th>Course</th>
+<th>Section</th>
+<th>Semester Type</th>
+<th>Semester No</th>
+
+</tr>
+
+
+<% @teacher_sections.each do |t| %>
+    <tr>      
+    <td><%= t.id %></td>
+    <td><%= t.course.course_name %></td>
+    <td><%= t.section_name %></td>
+    <td><%= t.semester.semester_number%></td>
+    <td><%= t.semester.semester_type%></td>
+    </tr>      
+<% end %>
+    

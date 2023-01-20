@@ -12,11 +12,17 @@ class TeachersController < ApplicationController
         def create
         end
       
-        def prevcourses
+        def prev_courses
           @teacher_sections=current_teacher.sections
-          end
-
-        private
+          
+        end
+        
+        def current_courses
+          @teacher_sections=current_teacher.sections
+        
+        end
+          
+          private
         # Use callbacks to share common setup or constraints between actions.
         def set_teacher
           @teacher = Teacher.find(params[:id])

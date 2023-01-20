@@ -4,8 +4,7 @@ class Teacher < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :users, through: :enrollments
   has_many :sections
-  has_many :enrollments
+  
 
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_18_111619) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_19_130523) do
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
     t.text "body"
@@ -54,16 +54,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_18_111619) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "section_id", null: false
-    t.integer "teacher_id", null: false
     t.integer "user_id", null: false
-    t.integer "course_id"
     t.integer "grade_id"
     t.integer "semester_id"
-    t.index ["course_id"], name: "index_enrollments_on_course_id"
     t.index ["grade_id"], name: "index_enrollments_on_grade_id"
     t.index ["section_id"], name: "index_enrollments_on_section_id"
     t.index ["semester_id"], name: "index_enrollments_on_semester_id"
-    t.index ["teacher_id"], name: "index_enrollments_on_teacher_id"
     t.index ["user_id"], name: "index_enrollments_on_user_id"
   end
 
@@ -77,9 +73,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_18_111619) do
     t.string "section_name"
     t.integer "teacher_id", null: false
     t.integer "course_id", null: false
+    t.integer "semester_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["course_id"], name: "index_sections_on_course_id"
+    t.index ["semester_id"], name: "index_sections_on_semester_id"
     t.index ["teacher_id"], name: "index_sections_on_teacher_id"
   end
 
@@ -136,13 +134,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_18_111619) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "enrollments", "courses"
   add_foreign_key "enrollments", "grades"
   add_foreign_key "enrollments", "sections"
   add_foreign_key "enrollments", "semesters"
-  add_foreign_key "enrollments", "teachers"
   add_foreign_key "enrollments", "users"
   add_foreign_key "sections", "courses"
+  add_foreign_key "sections", "semesters"
   add_foreign_key "sections", "teachers"
   add_foreign_key "student_semesters", "semesters"
   add_foreign_key "student_semesters", "users"
